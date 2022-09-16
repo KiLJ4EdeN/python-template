@@ -49,15 +49,6 @@ make create-cov
 ```
 
 ## documentation
-for the first time
-```bash
-# if its the first time
-poetry run sphinx-quickstart docs
-# modify conf.py accordingly
-poetry run sphinx-apidoc -o docs python_template
-```
-
-other times
 ```bash
 make create-doc
 ```
