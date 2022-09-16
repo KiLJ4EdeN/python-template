@@ -2,61 +2,70 @@
 python project template
 
 
-## Installation
+## install
 for pylance to work with poetry
 ```bash
 poetry config virtualenvs.in-project true
 ```
 ```bash
-poetry install
+make install
 ```
 
 
-## Build dist
+## dist
 ```bash
-poetry build
+make build
 ```
 
 ## pytest
 ```bash
-poetry run pytest
+make test
 ```
 
 ## flake8
 ```bash
-poetry run flake8
+make lint-flake8
 ```
 
 ## black
 ```bash
-poetry run black python_template/app.py
+make lint-black
+```
+
+## mypy
+```bash
+make lint-mypy
 ```
 
 ## pre-commit
 ```bash
-poetry run pre-commit run --all-files
+make pre-commit
 ```
 
 
 ## code cov
 ```bash
-poetry run coverage run -m pytest -s --disable-pytest-warnings && poetry run coverage html
+make create-cov
 ```
 
 ## documentation
+for the first time
 ```bash
 # if its the first time
 poetry run sphinx-quickstart docs
 # modify conf.py accordingly
 poetry run sphinx-apidoc -o docs python_template
-# for repetitive creation
-poetry run sphinx-build -b html docs/ docs/build/html
+```
+
+other times
+```bash
+make create-doc
 ```
 
 
 ## run app
 ```bash
-poetry run python python_template/app.py
+make start
 ```
 
 refer to:
@@ -65,4 +74,5 @@ refer to:
 localhost:5000
 
 localhost:5000/cov/ for code coverage report
+
 localhost:5000/docs/ for documentation
