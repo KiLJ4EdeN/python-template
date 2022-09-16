@@ -47,7 +47,7 @@ def send_doc_index() -> Response:
     Returns:
         html: index.html
     """
-    return send_from_directory("../docs/build/html", "index.html")
+    return send_from_directory("../site", "index.html")
 
 
 # docs
@@ -60,7 +60,12 @@ def send_doc(path: str) -> Response:
     Returns:
         html: Html File
     """
-    return send_from_directory("../docs/build/html", path)
+    ext_list = [".png", ".js", ".css", ".min"]
+    if not any([ext in path for ext in ext_list]):
+        path = path + "/" + "index.html"
+        return send_from_directory("../site", path)
+    else:
+        return send_from_directory("../site", path)
 
 
 if __name__ == "__main__":
