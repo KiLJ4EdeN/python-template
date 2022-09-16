@@ -72,3 +72,8 @@ module = "python_template"
 disallow_untyped_defs = false
 warn_return_any = false
 ignore_missing_imports = false
+
+[tool.isort]
+known_third_party = ["flask"]
+line_length = 88
+profile = 'black'
