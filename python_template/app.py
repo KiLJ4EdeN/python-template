@@ -7,12 +7,10 @@ app = Flask(__name__)
 # root
 @app.route("/")
 def index():
-    """_summary_.
+    """Send Hello World Back to User.
 
-    Send Hello World Back to User.
     Returns:
-        _type_: _description_
-        Hello World As Key Value Pair In JSON Format
+        json: Hello World As Key Value Pair In JSON Format
     """
     return jsonify({"hello": "world"})
 
@@ -20,28 +18,23 @@ def index():
 # coverage index
 @app.route("/cov/")
 def send_cov_index():
-    """_summary_.
+    """Send Index Route For Coverage.
 
-    Send Index Route For Coverage.
     Returns:
-        _type_: _description_
-        index.html
+        html: index.html
     """
     return send_from_directory("../coverage", "index.html")
 
 
 # coverage
 @app.route("/cov/<path:path>")
-def send_cov(path):
-    """_summary_.
+def send_cov(path: str):
+    """Send Coverage Static Files.
 
-    Send Coverage Static Files.
     Args:
-        path (_type_): _description_
-    Path to Coverage Dir Html File
+        path (str): Path to Coverage Dir Html File
     Returns:
-        _type_: _description_
-        Html File
+        html: Html File
     """
     return send_from_directory("../coverage", path)
 
@@ -49,28 +42,23 @@ def send_cov(path):
 # docs index
 @app.route("/docs/")
 def send_doc_index():
-    """_summary_.
+    """Send Index Route For Documentation.
 
-    Send Index Route For Documentation.
     Returns:
-        _type_: _description_
-        index.html
+        html: index.html
     """
     return send_from_directory("../docs/build/html", "index.html")
 
 
 # docs
 @app.route("/docs/<path:path>")
-def send_doc(path):
-    """_summary_.
+def send_doc(path: str):
+    """Send Documentation Static Files.
 
-    Send Documentation Static Files.
     Args:
-        path (_type_): _description_
-    Path to Documentation Dir Html File
+        path (str): Path to Documentation Dir Html File
     Returns:
-        _type_: _description_
-        Html File
+        html: Html File
     """
     return send_from_directory("../docs/build/html", path)
 
