@@ -4,7 +4,7 @@ from pathlib import Path
 import toml
 
 
-def get_version() -> dict[str, any]:
+def get_version() -> dict[str, str]:
     path = Path(__file__).resolve().parents[1] / "pyproject.toml"
     pyproject = toml.loads(open(str(path)).read())
     return pyproject["tool"]["poetry"]["version"]

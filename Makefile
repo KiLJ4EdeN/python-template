@@ -2,6 +2,14 @@ install:
 	poetry install
 build:
 	poetry build
+bump-major:
+	poetry version major
+bump-minor:
+	poetry version minor
+bump-patch:
+	poetry version patch
+bump-prerelease:
+	poetry version prerelease
 pre-commit:
 	poetry run pre-commit run --all-files
 fmt-black:
@@ -13,10 +21,12 @@ lint-flake8:
 lint-mypy:
 	poetry run mypy python_template/ tests/
 lint: lint-black lint-flake8 lint-mypy
-create-cov:
-	poetry run coverage run -m pytest -s --disable-pytest-warnings && poetry run coverage html
 create-doc:
 	poetry run mkdocs build
+create-cov-dir:
+	poetry run coverage run -m pytest -s --disable-pytest-warnings tests/test_version.py && poetry run coverage html
+create-cov:
+	make create-cov-dir && poetry run coverage run -m pytest -s --disable-pytest-warnings && poetry run coverage html
 start:
 	poetry run python python_template/app.py
 test:

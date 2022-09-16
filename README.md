@@ -14,10 +14,15 @@ poetry config virtualenvs.in-project true
 make install
 ```
 
-
 ## dist
 ```bash
 make build
+```
+
+## bump
+```bash
+# or major or minor or patch
+make bump-prerelease
 ```
 
 ## pytest
@@ -45,17 +50,15 @@ make lint-mypy
 make pre-commit
 ```
 
-
-## code cov
-```bash
-make create-cov
-```
-
 ## documentation
 ```bash
 make create-doc
 ```
 
+## code cov
+```bash
+make create-cov
+```
 
 ## run app
 ```bash
