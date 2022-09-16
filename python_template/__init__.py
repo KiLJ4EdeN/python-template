@@ -1,2 +1,13 @@
 """App Version."""
-__version__ = "0.0.1"
+from pathlib import Path
+
+import toml
+
+
+def get_version() -> dict[str, any]:
+    path = Path(__file__).resolve().parents[1] / "pyproject.toml"
+    pyproject = toml.loads(open(str(path)).read())
+    return pyproject["tool"]["poetry"]["version"]
+
+
+__version__ = get_version()

@@ -74,6 +74,6 @@ warn_return_any = false
 ignore_missing_imports = false
 
 [tool.isort]
-known_third_party = ["flask"]
+known_third_party = ["flask", "toml"]
 line_length = 88
 profile = 'black'
