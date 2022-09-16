@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+    python-template:
+        build:
+            context: ./
+            dockerfile: ./.docker/Dockerfile
+        container_name: python-template
+        restart: always
+        environment:
+            - APP_PORT=${APP_PORT}
+        expose:
+            - ${APP_PORT}
+        command: make start

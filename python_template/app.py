@@ -1,7 +1,13 @@
 """Main App."""
+import os
+
+from dotenv import load_dotenv
 from flask import Flask, Response, jsonify, send_from_directory
 
+# load .env
+load_dotenv()
 app = Flask(__name__)
+APP_PORT = int(os.getenv("APP_PORT", "5000"))
 
 
 # root
@@ -69,4 +75,4 @@ def send_doc(path: str) -> Response:
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=APP_PORT)

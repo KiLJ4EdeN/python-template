@@ -21,6 +21,8 @@ lint-flake8:
 lint-mypy:
 	poetry run mypy python_template/ tests/
 lint: lint-black lint-flake8 lint-mypy
+cleanup:
+	.scripts/clean.sh
 create-doc:
 	poetry run mkdocs build
 create-cov-dir:

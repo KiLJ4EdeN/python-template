@@ -13,6 +13,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.9"
 Flask = "^2.2.2"
+python-dotenv = "^0.21.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^3.0"
@@ -75,6 +76,6 @@ warn_return_any = false
 ignore_missing_imports = false
 
 [tool.isort]
-known_third_party = ["flask", "toml"]
+known_third_party = ["dotenv", "flask", "toml"]
 line_length = 88
 profile = 'black'
