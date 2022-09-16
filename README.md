@@ -74,6 +74,12 @@ localhost:5000/cov/ for code coverage report
 
 localhost:5000/docs/ for documentation
 
+## docker
+```bash
+make docker-build
+make docker-up
+make docker-down
+```
 
 ## structure
 ```

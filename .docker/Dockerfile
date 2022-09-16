@@ -27,6 +27,7 @@ RUN curl -sSL https://install.python-poetry.org | python3
 COPY . /app
 WORKDIR /app
 RUN make cleanup
+RUN make create-nginx
 RUN make install
 RUN make build
 # run tests and create docs

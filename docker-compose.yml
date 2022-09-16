@@ -5,10 +5,19 @@ services:
         build:
             context: ./
             dockerfile: ./.docker/Dockerfile
-        container_name: python-template
+        container_name: ${APP_NAME}
         restart: always
         environment:
             - APP_PORT=${APP_PORT}
         expose:
             - ${APP_PORT}
         command: make start
+
+    nginx:
+        build: ./nginx
+        container_name: nginx
+        restart: always
+        ports:
+            - ${APP_PORT}:${NGINX_CONTAINER_PORT}
+        depends_on:
+            - python-template
