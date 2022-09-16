@@ -1,12 +1,12 @@
 """Main App."""
-from flask import Flask, jsonify, send_from_directory
+from flask import Flask, Response, jsonify, send_from_directory
 
 app = Flask(__name__)
 
 
 # root
 @app.route("/")
-def index():
+def index() -> Response:
     """Send Hello World Back to User.
 
     Returns:
@@ -17,7 +17,7 @@ def index():
 
 # coverage index
 @app.route("/cov/")
-def send_cov_index():
+def send_cov_index() -> Response:
     """Send Index Route For Coverage.
 
     Returns:
@@ -28,7 +28,7 @@ def send_cov_index():
 
 # coverage
 @app.route("/cov/<path:path>")
-def send_cov(path: str):
+def send_cov(path: str) -> Response:
     """Send Coverage Static Files.
 
     Args:
@@ -41,7 +41,7 @@ def send_cov(path: str):
 
 # docs index
 @app.route("/docs/")
-def send_doc_index():
+def send_doc_index() -> Response:
     """Send Index Route For Documentation.
 
     Returns:
@@ -52,7 +52,7 @@ def send_doc_index():
 
 # docs
 @app.route("/docs/<path:path>")
-def send_doc(path: str):
+def send_doc(path: str) -> Response:
     """Send Documentation Static Files.
 
     Args:
