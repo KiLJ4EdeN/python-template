@@ -17,19 +17,42 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
     - uses: actions/checkout@v3
     - name: Setup Make
       run: |
         sudo apt-get install make
+
     - name: Set up Python 3.9
       uses: actions/setup-python@v3
       with:
         python-version: "3.9"
+
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
         pip install poetry
         make install
+
+    - name: Lint Code
+      run: |
+        make fmt-black
+        make lint-black
+        make lint-flake8
+        make lint-mypy
+
+    - name: Create Nginx Conf
+      run: |
+        make create-nginx
+
+    - name: Create Documentation
+      run: |
+        make create-doc
+
+    - name: Test Code and Make Coverage Report
+      run: |
+        make create-cov
+
     - name: Build Package
       run: |
         make build
