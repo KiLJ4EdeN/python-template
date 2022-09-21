@@ -76,6 +76,6 @@ warn_return_any = false
 ignore_missing_imports = false
 
 [tool.isort]
-known_third_party = ["dotenv", "flask", "toml"]
+known_third_party = ["dotenv", "flask", "setuptools", "toml"]
 line_length = 88
 profile = 'black'
