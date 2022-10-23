@@ -25,11 +25,6 @@ make build
 make bump-prerelease
 ```
 
-## pytest
-```bash
-make test
-```
-
 ## flake8
 ```bash
 make lint-flake8
@@ -58,6 +53,11 @@ make create-doc
 ## code cov
 ```bash
 make create-cov
+```
+
+## pytest
+```bash
+make test
 ```
 
 ## run app
